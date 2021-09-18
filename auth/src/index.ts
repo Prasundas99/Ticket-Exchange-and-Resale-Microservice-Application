@@ -12,3 +12,10 @@ app.listen(3000, () => {
     console.log('Listening on port 3000!');
     
 })
+
+
+
+//To open local deployed files
+// c:\Windows\System32\Drivers\etc\hosts
+
+//Process "thisisunsafe" when chrome blocks
