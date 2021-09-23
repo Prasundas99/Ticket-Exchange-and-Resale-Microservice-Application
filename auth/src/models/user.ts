@@ -6,23 +6,30 @@ interface UserAttrs {
     email: string;
     password: string;
 }
+//An interface that describes the properties 
+//that user model has
+
+interface UserModel extends mongoose.Model<any> {
+    build(attrs: UserAttrs): any;
+}
 
 
 const userSchema = new mongoose.Schema({
-    email:{
+    email: {
         type: String,
         required: true,
     },
-    password:{
+    password: {
         type: String,
         required: true,
     }
 });
 
-const User = mongoose.model('User', userSchema);
-
-const buildUser = (attrs: UserAttrs) =>{
-     return new User(attrs);
+userSchema.statics.build = (attrs: UserAttrs) => {
+    return new User(attrs);
 }
 
-export {User};
+const User = mongoose.model<any, UserModel>('User', userSchema);
+
+
+export { User };
