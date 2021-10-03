@@ -37,11 +37,12 @@ router.post(
     const user = User.build({ email, password });
     await user.save();
 
+
     //Generate JWT
     const userJWT = jwt.sign({
       id:user.id,
       email: user.email,
-    }, 'asdf')
+    }, process.env.JWT_KEY!) // the "!" mark says to ts we have taken care of thing ignore the warning or type check
     //Store it on session object
     req.session = { jwt: userJWT }
 
