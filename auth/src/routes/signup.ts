@@ -1,11 +1,9 @@
 import express, { Request, Response } from 'express';
-import { body, validationResult } from 'express-validator';
-import jwt from 'jsonwebtoken'
-
+import { body } from 'express-validator';
+import jwt from 'jsonwebtoken';
 
 import { validateRequest } from '../middlewares/validate-request';
 import { User } from '../models/user';
-import { RequestValidationError } from '../errors/request-validation-error';
 import { BadRequestError } from '../errors/bad-request-error';
 
 const router = express.Router();
@@ -34,14 +32,19 @@ router.post(
     const user = User.build({ email, password });
     await user.save();
 
+    // Generate JWT
+    const userJwt = jwt.sign(
+      {
+        id: user.id,
+        email: user.email
+      },
+      process.env.JWT_KEY!
+    );
 
-    //Generate JWT
-    const userJWT = jwt.sign({
-      id:user.id,
-      email: user.email,
-    }, process.env.JWT_KEY!) // the "!" mark says to ts we have taken care of thing ignore the warning or type check
-    //Store it on session object
-    req.session = { jwt: userJWT }
+    // Store it on session object
+    req.session = {
+      jwt: userJwt
+    };
 
     res.status(201).send(user);
   }
