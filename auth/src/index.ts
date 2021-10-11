@@ -2,6 +2,9 @@ import mongoose from 'mongoose';
 
 import { app } from './app';
 
+
+//another file is created to connect db for prod code to prevent conflict of prod and test server in test we are using mongo server and prob we are using mongodb
+
 const start = async () => {
   if (!process.env.JWT_KEY) {
     throw new Error('JWT_KEY must be defined');
