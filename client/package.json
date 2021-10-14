@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/Prasundas99/ticket-exchange-and-resale-Application#readme",
   "dependencies": {
+    "axios": "^0.23.0",
+    "bootstrap": "^4.4.1",
     "next": "^11.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
