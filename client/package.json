@@ -1,28 +1,20 @@
 {
-  "name": "microservice-stubhub-client",
+  "name": "client",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "next"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Prasundas99/ticket-exchange-and-resale-Application.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Prasundas99/ticket-exchange-and-resale-Application/issues"
-  },
-  "homepage": "https://github.com/Prasundas99/ticket-exchange-and-resale-Application#readme",
   "dependencies": {
-    "axios": "^0.23.0",
+    "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
-    "next": "^11.1.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },
-  "devDependencies": {},
-  "description": ""
+    "next": "^9.3.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-stripe-checkout": "^2.6.3"
+  }
 }
